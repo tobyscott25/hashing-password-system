@@ -1,7 +1,7 @@
 import hashlib
 
 def hash_password():
-    raw_password = input("Enter your password-system password: ")
+    raw_password = input("Password to convert: ")
 
     # Because the Python hashlib library cannot hash unicode encoded strings,
     # such as those in utf-8, we need to first convert the string to bytes.
@@ -15,7 +15,17 @@ def hash_password():
     # Rejoin the array to a string
     password = ''.join(array)
 
-    print("Please use the following as as your new secure password: ")
+    print("Your secure password is: ")
     print(password)
 
+
+    # Prompt the user to convert another
+    choice = input("Would you like to hash another password? (y/N)")
+    if choice == "y":
+        hash_password()
+    else:
+        exit()
+
+
+print("Welcome! Improve your password system by encorporating SHA256!")
 hash_password()

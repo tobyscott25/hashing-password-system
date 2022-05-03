@@ -1,32 +1,30 @@
-# Improving password systems with SHA256
+# Hashing Password System Concept
 
-## Password system example
-Jordan uses a password system rather than a password manager. Their Facebook password is `monkey.fa` and their Twitter password is `monkey.tw`.
+## Example of classic password systems
+Somebody's Facebook password may be `monkey.fa` and their Twitter password may be `monkey.tw`.
 
-## Pros
-- All of Jordan's passwords are different
-- They know them all off the top of their head
-- They are not stored in a third-party Password Manager with potential security flaws
+### Pros
+- Most of the passwords are different
+- The owners know them all off the top of their head
+- The passwords are not stored in a third-party Password Manager with potential security flaws
 
-## Cons
+### Cons
+- If an attacker got a hold of one password, they could easily guess the other passwords. For example, Google would be `monkey.go`
 
-- If an attacker got a hold of one of Jordan's passwords, they could easily guess Jordan's other passwords. Google would be `monkey.go`
 
+## The "use-hash-as-password" concept
 
-## Improving this with SHA256
+### 1. Use the hash ***as*** the password. 
+As little as one character difference changes the entire hash. We can ***eliminate ALL predictability*** by using the ***SHA256 hash of the product of the simple password system*** as the password.
 
-Because the entire hash changes when as little as one character differs, we can prevent the other passwords being guessed by using SHA256 to hash the simple password system and then use the hash as the password.
+### 2. Distort the hash before using it as the password.
+An attacker (although unlikely) could use an hash-reversing tool to reveal the original password. To prevent this we will distort the hash by removing every second character.
 
-## Further improvements
+## Limitations
 
-Hash distortion:
-If an attacker recognises it as a hash, they may use an unhashing tool to reverse the hash if the original password was generic enough. To prevent this we will remove every second character so it is no longer a pure SHA256 hash.
+There are some ridiculous password rules (see [here](https://github.com/duffn/dumb-password-rules) for some stupid examples). For this reason, this tool can be used to generate a secure password from your password system for ***most*** services but not ***all***.
 
-## Where this concept falls through
-
-Different services have different password rules (see here for stupid examples: https://github.com/duffn/dumb-password-rules). For this reason, this tool can be used to generate a secure password from your password system for MOST services but not ALL.
-
-## Usage
+## Run the hasher tool
 
 ```
 $ python hasher.py

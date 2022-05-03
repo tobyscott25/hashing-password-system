@@ -4,12 +4,12 @@
 Somebody's Facebook password may be `monkey.fa` and their Twitter password may be `monkey.tw`.
 
 ### Pros
-- Most of the passwords are different
-- The owners know them all off the top of their head
-- The passwords are not stored in a third-party Password Manager with potential security flaws
+- **Variation** - Most of the passwords are different
+- **Memorability** - The owners know them all off the top of their head
+- **Security (kind of)** - The passwords are not stored in a third-party Password Manager with potential security flaws
 
 ### Cons
-- If an attacker got a hold of one password, they could easily guess the other passwords. For example, Google would be `monkey.go`
+- **Predictability** - if an attacker got a hold of one password, they could easily guess the other passwords. For example, Google would be `monkey.go`
 
 
 ## The "use-hash-as-password" concept
